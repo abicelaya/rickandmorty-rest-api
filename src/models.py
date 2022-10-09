@@ -22,6 +22,14 @@ class Favorites_Characters(db.Model):
          
 
         }
+    def save(self):
+        if not self.id:
+            db.session.add(self)
+        db.session.commit()
+        
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
 
 class Favorites_Planets(db.Model):
     __tablename__ = 'favorites_planets'
@@ -40,6 +48,15 @@ class Favorites_Planets(db.Model):
     
 
         }
+
+    def save(self):
+        if not self.id:
+            db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
 
 class User(db.Model):
     __tablename__ = 'user'
@@ -61,7 +78,10 @@ class User(db.Model):
             
             # do not serialize the password, its a security breach
         }
-
+    def save(self):
+        if not self.id:
+            db.session.add(self)
+        db.session.commit()
 
 class Characters(db.Model):
     __tablename__ = 'characters'
