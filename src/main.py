@@ -43,3 +43,17 @@ def handle_hello():
 if __name__ == '__main__':
     PORT = int(os.environ.get('PORT', 3000))
     app.run(host='0.0.0.0', port=PORT, debug=False)
+
+
+# Listar todos los registros de people en la base de datos
+@app.route('/people', methods=['GET'])
+
+# Listar la información de una sola people
+@app.route('/people/<int:people_id>', methods=['GET'])
+
+# Listar los registros de planets en la base de datos
+@app.route('/planets', methods=['GET'])
+
+# Listar la información de un solo planet
+@app.route('/planets/<int:planet_id>', methods=['GET'])
+
